@@ -17,6 +17,41 @@ const navLinks = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const portfolioCategories = [
+    {
+      title: "Nautika",
+      cover: "/images/mkm-nautika.jpg",
+      images: ["/images/mkm-nautika.jpg"],
+    },
+    {
+      title: "Auto",
+      cover: "/images/mkm-auto.jpg",
+      images: ["/images/mkm-auto.jpg"],
+    },
+    {
+      title: "Moto",
+      cover: "/images/mkm-moto.jpg",
+      images: ["/images/mkm-moto.jpg"],
+    },
+    {
+      title: "Ostalo",
+      cover: null,
+      images: [],
+    },
+  ];
+
+  const openGallery = (index) => {
+    setActiveCategory(index);
+    setActiveImageIndex(0);
+  };
+
+  const closeGallery = () => {
+    setActiveCategory(null);
+  };
+
   return (
     <main>
       <Announcement />
@@ -211,15 +246,25 @@ function App() {
           <p>Inspiracija za vaš sljedeći projekt.</p>
         </div>
         <div className="portfolio-grid">
-          <div className="portfolio-image portfolio-one">
-            <span>01 / Fotelje</span>
-          </div>
-          <div className="portfolio-image portfolio-two">
-            <span>02 / Sofe</span>
-          </div>
-          <div className="portfolio-image portfolio-three">
-            <span>03 / Detalji</span>
-          </div>
+          {portfolioCategories.map((category, index) => (
+            <button
+              key={category.title}
+              type="button"
+              className={`portfolio-image portfolio-${index + 1}`}
+              style={
+                category.cover
+                  ? { backgroundImage: `url("${category.cover}")` }
+                  : undefined
+              }
+              onClick={() => openGallery(index)}
+              disabled={!category.cover}
+              aria-label={`Otvori galeriju: ${category.title}`}
+            >
+              <span>
+                {String(index + 1).padStart(2, "0")} / {category.title}
+              </span>
+            </button>
+          ))}
         </div>
         <p className="portfolio-note">
           Fotografije su privremene i zamijenit ćemo ih stvarnim radovima MKM-a.
