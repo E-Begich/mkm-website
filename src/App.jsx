@@ -1,8 +1,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowRight, Menu, Phone, Mail, X, MapPin, ChevronLeft, ChevronRight, } from 'lucide-react'
-import { useState } from 'react'
-import './App.css'
+import { useState, useRef, useEffect } from "react"; import './App.css'
 import Announcement from "./Announcement";
 
 
@@ -19,6 +18,15 @@ function App() {
 
   const [activeCategory, setActiveCategory] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const activeThumbnailRef = useRef(null);
+  useEffect(() => {
+    activeThumbnailRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [activeImageIndex]);
 
   const portfolioCategories = [
     {
@@ -363,6 +371,22 @@ function App() {
                 </button>
               </div>
             )}
+            {/* Male sličice fotografija */}
+            <div className="gallery-thumbnails">
+              {portfolioCategories[activeCategory].images.map((image, index) => (
+                <button
+                  key={image}
+                  ref={activeImageIndex === index ? activeThumbnailRef : null}
+                  type="button"
+                  className={`gallery-thumbnail ${activeImageIndex === index ? "active" : ""
+                    }`}
+                  onClick={() => setActiveImageIndex(index)}
+                  aria-label={`Otvori fotografiju ${index + 1}`}
+                >
+                  <img src={image} alt="" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
