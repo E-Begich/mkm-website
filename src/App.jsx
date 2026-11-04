@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion'
-import { ArrowDown, ArrowRight, Menu, Phone, Mail, X, MapPin } from 'lucide-react'
+import { ArrowDown, ArrowRight, Menu, Phone, Mail, X, MapPin, ChevronLeft, ChevronRight, } from 'lucide-react'
 import { useState } from 'react'
 import './App.css'
 import Announcement from "./Announcement";
@@ -29,7 +29,28 @@ function App() {
     {
       title: "Auto",
       cover: "/images/mkm-auto.jpg",
-      images: ["/images/mkm-auto.jpg"],
+      images: [
+        "/images/auto/mkm-auto-2.jpg",
+        "/images/auto/mkm-auto-3.jpg",
+        "/images/auto/mkm-auto-4.jpg",
+        "/images/auto/mkm-auto-5.jpg",
+        "/images/auto/mkm-auto-6.jpg",
+        "/images/auto/mkm-auto-7.jpg",
+        "/images/auto/mkm-auto-8.jpg",
+        "/images/auto/mkm-auto-9.jpg",
+        "/images/auto/mkm-auto-10.jpg",
+        "/images/auto/mkm-auto-11.jpg",
+        "/images/auto/mkm-auto-12.jpg",
+        "/images/auto/mkm-auto-13.jpg",
+        "/images/auto/mkm-auto-14.jpg",
+        "/images/auto/mkm-auto-15.jpg",
+        "/images/auto/mkm-auto-16.jpg",
+        "/images/auto/mkm-auto-17.jpg",
+        "/images/auto/mkm-auto-18.jpg",
+        "/images/auto/mkm-auto-19.jpg",
+        "/images/auto/mkm-auto-20.jpg",
+        "/images/auto/mkm-auto-21.jpg",
+      ],
     },
     {
       title: "Moto",
@@ -270,6 +291,81 @@ function App() {
           Fotografije su privremene i zamijenit ćemo ih stvarnim radovima MKM-a.
         </p>
       </section>
+
+      {activeCategory !== null && (
+        <div
+          className="gallery-modal"
+          onClick={closeGallery}
+          role="presentation"
+        >
+          <div
+            className="gallery-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Galerija: ${portfolioCategories[activeCategory].title}`}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="gallery-close"
+              onClick={closeGallery}
+              aria-label="Zatvori galeriju"
+            >
+              <X size={26} />
+            </button>
+
+            <p className="gallery-modal-title">
+              {portfolioCategories[activeCategory].title}
+            </p>
+
+            {portfolioCategories[activeCategory].images.length > 0 && (
+              <img
+                className="gallery-modal-image"
+                src={
+                  portfolioCategories[activeCategory].images[activeImageIndex]
+                }
+                alt={`Radovi MKM – ${portfolioCategories[activeCategory].title}`}
+              />
+            )}
+
+            {portfolioCategories[activeCategory].images.length > 1 && (
+              <div className="gallery-controls">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setActiveImageIndex((current) =>
+                      current === 0
+                        ? portfolioCategories[activeCategory].images.length - 1
+                        : current - 1
+                    )
+                  }
+                  aria-label="Prethodna fotografija"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+
+                <span>
+                  {activeImageIndex + 1} /{" "}
+                  {portfolioCategories[activeCategory].images.length}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setActiveImageIndex((current) =>
+                      (current + 1) %
+                      portfolioCategories[activeCategory].images.length
+                    )
+                  }
+                  aria-label="Sljedeća fotografija"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
 
       <section className="contact" id="kontakt">
