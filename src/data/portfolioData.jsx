@@ -3,7 +3,11 @@ export const portfolioCategories = [
   {
     title: "Nautika",
     cover: "/images/mkm-nautika.jpg",
-    images: ["/images/mkm-nautika.jpg"],
+    images: [
+      "/images/nautika/mkm-nautika-1.jpg",
+      "/images/nautika/mkm-nautika-2.jpg",
+      "/images/nautika/mkm-nautika-3.jpg"
+    ],
   },
   {
     title: "Auto",
@@ -34,11 +38,19 @@ export const portfolioCategories = [
   {
     title: "Moto",
     cover: "/images/mkm-moto.jpg",
-    images: ["/images/mkm-moto.jpg"],
+    images: [
+      "/images/moto/mkm-moto-1.jpg",
+      "/images/moto/mkm-moto-2.jpg",
+      "/images/moto/mkm-moto-3.jpg",
+    ],
   },
   {
     title: "Ostalo",
-    cover: null,
-    images: [],
+    cover: "/images/namjestaj/mkm-ostalo-3.jpg",
+    images: [
+      "/images/namjestaj/mkm-ostalo-1.jpg",
+      "/images/namjestaj/mkm-ostalo-2.jpg",
+      "/images/namjestaj/mkm-ostalo-3.jpg"
+    ],
   },
 ];

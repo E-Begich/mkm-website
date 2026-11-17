@@ -11,8 +11,6 @@ function Portfolio({ categories, onOpenGallery }) {
           </span>
           <h2>Iz starog u posebno.</h2>
         </div>
-
-        <p>Inspiracija za vaš sljedeći projekt.</p>
       </div>
 
       <div className="portfolio-grid">
@@ -38,7 +36,6 @@ function Portfolio({ categories, onOpenGallery }) {
       </div>
 
       <p className="portfolio-note">
-        Fotografije su privremene i zamijenit ćemo ih stvarnim radovima MKM-a.
       </p>
     </section>
   );
