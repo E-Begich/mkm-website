@@ -1,0 +1,152 @@
+.services,
+.portfolio {
+  padding: 100px 11%;
+  background: #f9f8f6;
+}
+
+.portfolio {
+  background: #fff;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 35px;
+  margin-bottom: 48px;
+}
+
+.dark-eyebrow {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.section-heading > p {
+  max-width: 270px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.portfolio-heading h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.portfolio-image {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 350px;
+  min-height: 280px;
+  padding: 22px;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  color: #fff;
+  background-color: #e8e5e0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72),
+    transparent 60%
+  );
+  transition: background 0.3s ease;
+}
+
+.portfolio-image:hover {
+  transform: translateY(-3px);
+}
+
+.portfolio-image span {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.portfolio-image:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.portfolio-note {
+  margin-top: 18px;
+  color: #888;
+  font-size: 11px;
+}
+
+/* Prilagodba za manje ekrane */
+@media (max-width: 1050px) {
+  .portfolio {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .portfolio-image {
+    height: 290px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .section-heading > p {
+    margin: 0;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .portfolio-image {
+    height: 250px;
+    min-height: 240px;
+  }
+
+  .portfolio-image:first-child {
+    grid-column: 1 / -1;
+    height: 300px;
+  }
+}
+
+@media (max-width: 420px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-image,
+  .portfolio-image:first-child {
+    grid-column: auto;
+    height: 300px;
+  }
+}

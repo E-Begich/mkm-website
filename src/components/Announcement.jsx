@@ -1,7 +1,9 @@
 
 import { useState } from "react";
 import { CalendarDays, BriefcaseBusiness, Info } from "lucide-react";
-import { Announcement as announcementData } from "./AnnouncementData";
+import { Announcement as announcementData } from "../AnnouncementData";
+
+import "../styles/Announcement.css";
 
 function Announcement() {
   const [isVisible, setIsVisible] = useState(true);

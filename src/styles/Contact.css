@@ -1,0 +1,212 @@
+.contact {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+  padding: 100px 11%;
+  background: #292929;
+  overflow: hidden;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.contact-content .eyebrow {
+  color: #c4c0bd;
+}
+
+.contact-content .eyebrow-line {
+  background: #c62828;
+}
+
+.contact-content h2 {
+  font-size: clamp(50px, 6vw, 76px);
+  line-height: 1.15;
+  margin: 24px 0;
+  color: #ffffff;
+}
+
+.contact-content h2 span {
+  color: #c62828;
+}
+
+.contact-content > p {
+  max-width: 440px;
+  color: #c4c0bd;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+/* Kontaktni podaci */
+.contact-location {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 28px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 4px 16px;
+  color: #e05252;
+}
+
+.contact-item:first-child {
+  padding-left: 0;
+}
+
+.contact-item + .contact-item {
+  border-left: 1px solid #c62828;
+}
+
+.contact-item h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.contact-item p,
+.contact-item a {
+  margin: 0;
+  color: #c4c0bd;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.contact-item a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+  color: #ffffff;
+}
+
+/* Google karta */
+.contact-map {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #d5d2ce;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Navigacija do radionice */
+.contact-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #e05252;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.25s ease;
+}
+
+.contact-directions:hover {
+  gap: 13px;
+}
+
+/* Logo u pozadini */
+.contact-decoration {
+  position: absolute;
+  right: 5%;
+  bottom: -30px;
+  width: 600px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.12;
+  object-fit: contain;
+  filter: grayscale(1);
+}
+
+/* Prilagodba za manje ekrane */
+@media (max-width: 1050px) {
+  .contact {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 75px 7%;
+  }
+
+  .contact-content h2 {
+    font-size: 40px;
+  }
+
+  .contact-details {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .contact-item {
+    padding: 0 0 0 16px;
+    border-left: 1px solid #c62828;
+  }
+
+  .contact-item:first-child {
+    padding-left: 16px;
+  }
+
+  .contact-item + .contact-item {
+    border-left: 1px solid #c62828;
+  }
+
+  .contact-map {
+    height: 280px;
+  }
+
+  .contact-decoration {
+    right: -30px;
+    bottom: -20px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .contact h2 {
+    font-size: 57px;
+  }
+}
