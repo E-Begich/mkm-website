@@ -11,6 +11,7 @@ import Portfolio from "./components/Portfolio";
 import GalleryModal from "./components/GalleryModal";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import RequestForm from "./components/RequestForm";
 
 import { portfolioCategories } from "./data/portfolioData";
 
@@ -43,6 +44,7 @@ function App() {
       )}
 
       <Contact />
+      <RequestForm />
       <Footer />
     </main>
   );

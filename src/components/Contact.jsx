@@ -22,7 +22,7 @@ function Contact() {
           a mi ćemo je pretvoriti u stvarnost.
         </p>
 
-        <a href="mailto:mkm@mkm-ri.com" className="button-primary">
+        <a href="#upit" className="button-primary">
           Zatražite ponudu <ArrowRight size={17} />
         </a>
       </div>

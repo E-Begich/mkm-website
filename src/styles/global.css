@@ -86,3 +86,7 @@ button {
     letter-spacing: 2px;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
